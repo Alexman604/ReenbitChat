@@ -10,6 +10,7 @@ class SearchPanel extends Component {
         }
     }
 
+    
     render () {
         return (
           <div  className="search-panel">
@@ -28,5 +29,6 @@ class SearchPanel extends Component {
     }
 
 }
+
 
 export default SearchPanel;

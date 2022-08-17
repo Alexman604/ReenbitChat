@@ -10,7 +10,14 @@ class MessageInput extends Component {
         }
     }
 
+    getJoke = () => {
+        fetch('https://reqbin.com/echo/get/json')
+        .then(response => response.json())
+        .then(json => console.log(json))
+    }
+    
     render () {
+       
         return (
           <div  className="input-wrapper">
             
@@ -20,7 +27,7 @@ class MessageInput extends Component {
                  className="message-input"
                 placeholder="Type your message"
                 />
-                <button>GO</button>
+                <button onClick={this.getJoke}>GO</button>
             </form>
             </div>    
         )
