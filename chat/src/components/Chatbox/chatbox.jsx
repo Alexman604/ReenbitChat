@@ -2,11 +2,19 @@
 import "./chatbox.css";
 import Message from "./message";
 
- ChatBox = ({data, activeID}) => {
-    console.log(data, activeID);
+ const ChatBox = ({data, activeID}) => {
+    console.log(activeID);
 
 
-    return( )
+    return( <div  className="chatbox-wrapper">
+             
+    <Message/>
+    <Message/>
+    <Message/>
+    
+   
+    
+   </div>    );
 
 
  }

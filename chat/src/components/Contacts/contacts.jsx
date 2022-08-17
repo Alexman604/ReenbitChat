@@ -6,7 +6,7 @@ const Contacts = ({data}) => {
      const friend = data.map ( item => {
           
           const {...itemProps} = item;
-
+          console.log(item.chatHistory);
           return (
           < ContactItem  {...itemProps}/>  
           )       
