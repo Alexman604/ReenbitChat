@@ -5,10 +5,10 @@ const Contacts = ({data}) => {
      
      const friend = data.map ( item => {
           
-          const {...itemProps} = item;
-          console.log(item.chatHistory);
+          const {id, ...itemProps} = item;
+         
           return (
-          < ContactItem  {...itemProps}/>  
+          < ContactItem  key = {id} {...itemProps}/>  
           )       
 })
 

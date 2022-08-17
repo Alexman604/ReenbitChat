@@ -26,9 +26,10 @@ class App extends Component {
         lastMsgDate: "22 march 2022",
         chatHistory: [{msg:"bazzz", date:"22-22-22"}, {msg:"free", date:"22-22-22"}, {msg:"baz", date:"22-22-22"}]
       }
-      ],
-      activeID: "1"
-    }
+      ]
+      
+    };
+    this.activeID = 2;
   }
  
   render() {

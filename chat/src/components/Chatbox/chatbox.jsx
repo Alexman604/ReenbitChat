@@ -3,21 +3,37 @@ import "./chatbox.css";
 import Message from "./message";
 
  const ChatBox = ({data, activeID}) => {
-    console.log(activeID);
+    //console.log(activeID);
 
-
-    return( <div  className="chatbox-wrapper">
+    const chatHistory = data.map ( item => {
+          
+      const {id, ...itemProps} = item;
+     // console.log(item.chatHistory);
+      console.log(id);
+      if (activeID === id)
+     
+      return (
+       // console.log (item.chatHistory)
+       <Message key = {id} messages = {item.chatHistory}/>
+      )
+    })
+      
+      return (
+      <div  className="chatbox-wrapper">
              
-    <Message/>
-    <Message/>
-    <Message/>
-    
-   
-    
-   </div>    );
+            {chatHistory}
+      
+          
+     </div>);
+  
+           
+}
 
 
- }
+
+
+
+
 
  
 
