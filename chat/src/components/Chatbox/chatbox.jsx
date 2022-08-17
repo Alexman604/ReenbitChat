@@ -1,41 +1,21 @@
-
 import "./chatbox.css";
 import Message from "./message";
 
- const ChatBox = ({data, activeID}) => {
-    //console.log(activeID);
+const ChatBox = ({ data, activeID }) => {
+  //console.log(activeID);
 
-    const chatHistory = data.map ( item => {
-          
-      const {id, ...itemProps} = item;
-     // console.log(item.chatHistory);
-      console.log(id);
-      if (activeID === id)
-     
+  const chatHistory = data.map((item) => {
+    const { id, ...itemProps } = item;
+  //  console.log(item);
+   // console.log(id);
+    if (activeID === id)
       return (
-       // console.log (item.chatHistory)
-       <Message key = {id} messages = {item.chatHistory}/>
-      )
-    })
-      
-      return (
-      <div  className="chatbox-wrapper">
-             
-            {chatHistory}
-      
-          
-     </div>);
-  
-           
-}
+        <Message key={id} messages={item.chatHistory} />
+      );
+  });
 
-
-
-
-
-
-
- 
+  return <div className="chatbox-wrapper">{chatHistory}</div>;
+};
 
 /*     constructor (props) {
         super(props);
@@ -74,7 +54,6 @@ import Message from "./message";
     }
 
 }; */
-
 
 export default ChatBox;
 

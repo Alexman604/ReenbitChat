@@ -1,6 +1,7 @@
 import "./contacts.css"
 
 const ContactItem = (props) => {
+  //  console.log(props)
     const {img, name, lastMsgDate, lastMsg} = props;
     return (
         <li> 
