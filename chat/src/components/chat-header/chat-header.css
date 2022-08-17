@@ -1,0 +1,15 @@
+.chat-header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(215, 215, 215);
+    border-bottom: grey solid 1px;
+}
+
+.name {
+    color: black;
+    
+}

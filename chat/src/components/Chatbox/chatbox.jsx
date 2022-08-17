@@ -1,43 +1,62 @@
-import { Component } from "react";
+
 import "./chatbox.css";
+import Message from "./message";
 
-class ChatBox extends Component {
+ ChatBox = ({data, activeID}) => {
+    console.log(data, activeID);
 
-    constructor (props) {
+
+    return( )
+
+
+ }
+
+ 
+
+/*     constructor (props) {
         super(props);
         
         this.state = {
-            totalReactPackages: null
+           //totalReactPackages: null
         };
     }
 
-    async componentDidMount() {
+        
+  async componentDidMount() {
         // GET request using fetch with async/await
         const response = await fetch('https://api.chucknorris.io/jokes/random');
         const data = await response.json();
         console.log(data.value);
         this.setState({ totalReactPackages: data.value })
-    }
+    } 
 
     render () {
-        const { totalReactPackages } = this.state;
+        
+        const {name, chatHistory} = this.props;
+        console.log(name);
+      //  const { totalReactPackages } = this.state;
         return (
           <div  className="chatbox-wrapper">
-             <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/32/Apps-preferences-desktop-user-icon.png" alt="USerPicture" />
-      
+             
+             <Message/>
+             <Message/>
+             <Message/>
+             
             
-             <div className="card text-center m-3">
-                <h5 className="card-header">GET Request with Async/Await</h5>
-                <div className="card-body">
-                    Total react packages: {totalReactPackages}
-                </div>
-            </div>
+             
             </div>    
         )
 
     }
 
-};
+}; */
 
 
 export default ChatBox;
+
+/* <div className="card text-center m-3">
+                <h5 className="card-header">GET Request with Async/Await</h5>
+                <div className="card-body">
+                    Total react packages: {totalReactPackages}
+                </div>
+            </div> */
