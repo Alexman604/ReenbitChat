@@ -12,8 +12,7 @@ class MessageInput extends Component {
         }
         console.log(props);
     }
-
-    
+   
     
     onInputChange =(e) => {
         this.setState({
@@ -23,18 +22,19 @@ class MessageInput extends Component {
 
     sendNewMessage = (e) => {
         e.preventDefault();
-        this.props.onAdd(this.state.message, this.state.date);
+        
         this.setState({
-            name: '',
+            message: '',
             date: ''
         })
+        this.props.addMessage(this.state.message, this.state.date);
     }
 
-    getJoke = () => {
+  /*   getJoke = () => {
         fetch('https://reqbin.com/echo/get/json')
         .then(response => response.json())
         .then(json => console.log(json))
-    }
+    } */
     
     render () {
        
@@ -45,7 +45,7 @@ class MessageInput extends Component {
                 <input 
                 type="text" 
                 onSubmit={this.sendNewMessage}
-                name = "messageText"
+                name = "message"
                 value={this.state.name}
                 className="message-input"
                 placeholder="Type your message"

@@ -33,7 +33,9 @@ class App extends Component {
     
   }
 
-  addMessage = (activeID, message, date) => {
+ 
+  addMessage = (message, date) => {
+    
     console.log(this.data);
     const newMessage = {
         message, 
@@ -69,7 +71,7 @@ class App extends Component {
 
         <section className='right-side'>
         
-        <ChatBox data = {this.state.data} activeID = {this.state.activeID} onAdd = {this.addMessage}/>
+        <ChatBox data = {this.state.data} activeID = {this.state.activeID} addMessage={this.addMessage}/>
         
         </section>
     
