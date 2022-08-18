@@ -10,18 +10,20 @@ class MessageInput extends Component {
             date:""
             
         }
+        console.log(props);
     }
 
     
+    
     onInputChange =(e) => {
         this.setState({
-            [e.target.name] : [e.target.value]
+            [e.target.name] : e.target.value
         })
     }
 
     sendNewMessage = (e) => {
         e.preventDefault();
-        this.props.onAdd(this.state.name, this.state.date);
+        this.props.onAdd(this.state.message, this.state.date);
         this.setState({
             name: '',
             date: ''

@@ -11,8 +11,8 @@ const ChatBox = ({ data, activeID, addMessage }) => {
           return (
             <>
             <ChatHeader img = {item.img} name = {item.name}/>
-            <Messages messages={item.chatHistory} img={item.img} addMessage = {()=>addMessage()} />
-            <MessageInput/>
+            <Messages messages={item.chatHistory} img={item.img}  />
+            <MessageInput addMessage = {()=>addMessage()}/>
             </>
           );
       })}
