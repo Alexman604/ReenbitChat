@@ -10,7 +10,7 @@ const ChatBox = ({ data, activeID }) => {
    // console.log(id);
     if (activeID === id)
       return (
-        <Message key={id} messages={item.chatHistory} />
+        <Message key={id} messages={item.chatHistory} img = {item.img}/>
       );
   });
 

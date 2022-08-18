@@ -1,7 +1,7 @@
 
 import './chat-header.css'
 
-const ChatHeader = () => {
+const ChatHeader = (props) => {
      return (
         <div className="chat-header">
             <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/32/Apps-preferences-desktop-user-icon.png" alt="USerPicture" />

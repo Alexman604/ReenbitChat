@@ -29,7 +29,7 @@ class App extends Component {
       ]
       
     };
-    this.activeID = 2;
+    this.activeID = 1;
   }
  
   render() {
@@ -37,11 +37,8 @@ class App extends Component {
       return (
       <div className="app">
         <section className='left-side'>
-
         <SearchPanel/>
         <Contacts data = {this.state.data}/>
-       
-
         </section>
 
         <section className='right-side'>

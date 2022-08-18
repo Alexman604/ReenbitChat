@@ -7,7 +7,7 @@ const Message = ({...props}) => {
 
                         <>
                         <div className="message">
-                        <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/32/Apps-preferences-desktop-user-icon.png" alt="" />
+                        <img src={props.img} alt="" />
                     
                     
                         <div className='text-container'>
