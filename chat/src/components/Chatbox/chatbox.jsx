@@ -1,20 +1,23 @@
+import ChatHeader from "../chat-header/chat-header";
+import MessageInput from "../message-input/message-input";
 import "./chatbox.css";
-import Message from "./message";
+import Messages from "./messages";
 
-const ChatBox = ({ data, activeID }) => {
-  //console.log(activeID);
-
-  const chatHistory = data.map((item) => {
-    const { id, ...itemProps } = item;
-  //  console.log(item);
-   // console.log(id);
-    if (activeID === id)
-      return (
-        <Message key={id} messages={item.chatHistory} img = {item.img}/>
-      );
-  });
-
-  return <div className="chatbox-wrapper">{chatHistory}</div>;
+const ChatBox = ({ data, activeID, addMessage }) => {
+  return (
+    <div className="chatbox-wrapper">
+      {data.map((item, index) => {
+        if (activeID === index + 1)
+          return (
+            <>
+            <ChatHeader img = {item.img} name = {item.name}/>
+            <Messages messages={item.chatHistory} img={item.img} addMessage = {()=>addMessage()} />
+            <MessageInput/>
+            </>
+          );
+      })}
+    </div>
+  );
 };
 
 /*     constructor (props) {

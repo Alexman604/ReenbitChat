@@ -6,8 +6,26 @@ class MessageInput extends Component {
     constructor (props) {
         super(props);
         this.state = {
+            message:"",
+            date:""
             
         }
+    }
+
+    
+    onInputChange =(e) => {
+        this.setState({
+            [e.target.name] : [e.target.value]
+        })
+    }
+
+    sendNewMessage = (e) => {
+        e.preventDefault();
+        this.props.onAdd(this.state.name, this.state.date);
+        this.setState({
+            name: '',
+            date: ''
+        })
     }
 
     getJoke = () => {
@@ -23,11 +41,15 @@ class MessageInput extends Component {
             
             <form className="">
                 <input 
-                 type="text" 
-                 className="message-input"
+                type="text" 
+                onSubmit={this.sendNewMessage}
+                name = "messageText"
+                value={this.state.name}
+                className="message-input"
                 placeholder="Type your message"
+                onChange={this.onInputChange}
                 />
-                <button onClick={this.getJoke}>GO</button>
+                <button type="submit">GO</button>
             </form>
             </div>    
         )

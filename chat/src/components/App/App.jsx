@@ -26,17 +26,35 @@ class App extends Component {
         lastMsgDate: "22 march 2022",
         chatHistory: [{msg:"bazzz", date:"22-22-22"}, {msg:"free", date:"22-22-22"}, {msg:"baz", date:"22-22-22"}]
       }
-      ]
+      ],
+      activeID: 1
       
     };
-    this.activeID = 1;
+    
   }
 
+  addMessage = (activeID, message, date) => {
+    console.log(this.data);
+    const newMessage = {
+        message, 
+        date,
+        }
+    this.setState(({data}) => {
+        const newArr = [...data, newMessage];
+        return {
+            data: newArr
+            
+        };
+        
+        
+    } )
+}
+
   onActiveIDChange = (id) => {
-    console.log("activeID", this.activeID);
+    console.log("activeID", this.state.activeID);
    console.log("just id=", id);
-    this.setState(state=>({activeID: state.activeID +1}));
-    console.log("activeID", this.activeID);
+    this.setState((state)=>{ return {activeID: id}});
+    console.log("activeID", this.state.activeID);
   }
 
   render() {
@@ -50,9 +68,9 @@ class App extends Component {
         </section>
 
         <section className='right-side'>
-        <ChatHeader data = {this.state.data}/>
-        <ChatBox data = {this.state.data} activeID = {this.activeID}/>
-        <MessageInput/>
+        
+        <ChatBox data = {this.state.data} activeID = {this.state.activeID} onAdd = {this.addMessage}/>
+        
         </section>
     
     
