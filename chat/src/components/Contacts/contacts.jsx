@@ -1,22 +1,30 @@
-import ContactItem from './contactItems';
+
 import './contacts.css'
 
-const Contacts = ({data}) => {
+const Contacts = ({data, onActiveIDChange}) => {
      
-     const friend = data.map ( item => {
-          
-          const {id, ...itemProps} = item;
-         
-          return (
-          < ContactItem  key = {id} {...itemProps}/>  
-          )       
-})
+
 
 return(
      <div className="contacts_wrapper">
      <h2>Chats</h2>
      <ul>
-         {friend}
+         {
+          data.map((item, index)=>(
+          <li key = {index} onClick = {() => {onActiveIDChange(index+1)}}> 
+                <img src={item.img} alt="" />
+                <div className='text-container'>
+                <h3 className='name'>  {item.name}</h3>
+                <span className='data'> {item.lastMsgDate} </span>
+                <span className='msg'> {item.lastMsg}</span>
+                </div>
+          </li>
+
+          ))
+
+
+         }
+
     </ul>
     </div>
 )

@@ -31,14 +31,22 @@ class App extends Component {
     };
     this.activeID = 1;
   }
- 
+
+  onActiveIDChange = (id) => {
+    console.log("activeID", this.activeID);
+   console.log("just id=", id);
+    this.setState(state=>({activeID: state.activeID +1}));
+    console.log("activeID", this.activeID);
+  }
+
   render() {
 
       return (
       <div className="app">
         <section className='left-side'>
-        <SearchPanel/>
-        <Contacts data = {this.state.data}/>
+          <SearchPanel/>
+          <Contacts data = {this.state.data} 
+          onActiveIDChange ={this.onActiveIDChange}/>
         </section>
 
         <section className='right-side'>
