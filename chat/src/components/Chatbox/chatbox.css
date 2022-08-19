@@ -1,7 +1,16 @@
 .chatbox-wrapper {
     height: 100%;
-    padding: 20px;
+    overflow-y: scroll;
     background-color: white;
     border-bottom: grey solid 1px;
+}
+.messageContainer {
+   
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.5rem;
     
+
 }

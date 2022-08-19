@@ -1,7 +1,7 @@
 
 
 .search-panel {
-    padding: 20px;
+    padding: 15px;
     background-color: rgb(215, 215, 215);
     border-bottom: grey solid 1px;
     
@@ -13,7 +13,7 @@
     font-size: 1rem;
     border-radius: 40px;
     width: 100%;
-    padding: 12px 12px;
+    padding: 10px 10px;
     margin: 8px 0;
     box-sizing: border-box;
     border: grey solid 1px;

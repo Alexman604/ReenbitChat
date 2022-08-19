@@ -1,3 +1,54 @@
 .message {
-    display:flex;
+    display: flex;
+    padding: ;
+    margin: 5px;
+    flex-direction: ;
+    
+    
+    
+}
+ .textContainer {
+    
+    display: flex;
+    border-radius: 50rem;
+    overflow: hidden;
+    padding: 0.5rem 1.3rem;
+
+ }
+.message:nth-child(odd) {
+   
+    flex-direction: column;
+    
+    padding-left: 20%;
+    align-self: end;
+    
+}
+
+.message:nth-child(odd) img{
+    display: none;
+}
+.message:nth-child(even) {
+    display: flex;
+    align-self:baseline;
+    /* background-color: lightcoral; */
+    flex-wrap: wrap;
+    
+
+}
+
+.MessageDate {
+    text-align: right;
+}
+
+
+.message:nth-child(odd) .textContainer{
+    background-color: rgb(198, 196, 196);
+    
+}
+
+.message:nth-child(even) .textContainer{
+    background-color:black;
+    color: aliceblue;
+    align-items: center;
+    
 }

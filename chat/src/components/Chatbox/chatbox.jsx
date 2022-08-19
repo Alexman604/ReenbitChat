@@ -12,7 +12,9 @@ const ChatBox = ({ data, activeID }) => {
           return (
             <React.Fragment key={index}>
             <ChatHeader img = {item.img} name = {item.name}/>
-            <Messages messages={item.chatHistory} img={item.img}/>
+              <div className ="messageContainer" >
+              <Messages messages={item.chatHistory} img={item.img}/>
+              </div>
             </React.Fragment>
           );
       })}
