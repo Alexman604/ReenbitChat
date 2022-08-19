@@ -18,13 +18,14 @@ class MessageInput extends Component {
         this.setState({
             [e.target.name] : e.target.value
         })
-        console.log(this.state)
+        
     }
 
     sendNewMessage = (e) => {
         e.preventDefault();
-        console.log(this.props.addMessage)
-        this.props.addMessage(this.state.message, this.state.date);
+        const currentDate = new Date().toLocaleString();
+       
+        this.props.addMessage(this.state.message, currentDate);
         console.log(this.state.message)
         this.setState({message: " ", date: " "})
         
@@ -44,7 +45,7 @@ class MessageInput extends Component {
             <form className="">
                 <input 
                 type="text" 
-                onSubmit={this.sendNewMessage} 
+                
                 name = "message"
                 value={this.state.name}
                 className="message-input"

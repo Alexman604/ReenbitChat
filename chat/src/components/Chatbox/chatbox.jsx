@@ -3,7 +3,7 @@ import MessageInput from "../message-input/message-input";
 import "./chatbox.css";
 import Messages from "./messages";
 
-const ChatBox = ({ data, activeID, addMessage }) => {
+const ChatBox = ({ data, activeID }) => {
   return (
     <div className="chatbox-wrapper">
       {data.map((item, index) => {
@@ -11,8 +11,7 @@ const ChatBox = ({ data, activeID, addMessage }) => {
           return (
             <>
             <ChatHeader img = {item.img} name = {item.name}/>
-            <Messages messages={item.chatHistory} img={item.img}  />
-            <MessageInput addMessage={() => addMessage()}/>
+            <Messages messages={item.chatHistory} img={item.img}/>
             </>
           );
       })}
