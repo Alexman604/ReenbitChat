@@ -7,10 +7,10 @@ class MessageInput extends Component {
         super(props);
         this.state = {
             message:"",
-            date:""
+            date:"55-55-55"
             
         }
-        console.log(props);
+       
     }
    
     
@@ -18,16 +18,16 @@ class MessageInput extends Component {
         this.setState({
             [e.target.name] : e.target.value
         })
+        console.log(this.state)
     }
 
     sendNewMessage = (e) => {
         e.preventDefault();
-        
-        this.setState({
-            message: '',
-            date: ''
-        })
+        console.log(this.props.addMessage)
         this.props.addMessage(this.state.message, this.state.date);
+        console.log(this.state.message)
+        this.setState({message: " ", date: " "})
+        
     }
 
   /*   getJoke = () => {
@@ -44,14 +44,14 @@ class MessageInput extends Component {
             <form className="">
                 <input 
                 type="text" 
-                onSubmit={this.sendNewMessage}
+                onSubmit={this.sendNewMessage} 
                 name = "message"
                 value={this.state.name}
                 className="message-input"
                 placeholder="Type your message"
                 onChange={this.onInputChange}
                 />
-                <button type="submit">GO</button>
+                <button onClick = {this.sendNewMessage} type="submit">GO</button>
             </form>
             </div>    
         )

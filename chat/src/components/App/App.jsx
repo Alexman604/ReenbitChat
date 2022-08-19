@@ -35,28 +35,29 @@ class App extends Component {
 
  
   addMessage = (message, date) => {
-    
-    console.log(this.data);
+    console.log(message, date)
+    console.log(this.state.data);
     const newMessage = {
         message, 
-        date,
+        date
         }
     this.setState(({data}) => {
         const newArr = [...data, newMessage];
         return {
-            data: newArr
-            
+         data: newArr
+         
         };
         
         
-    } )
+    } 
+    )
+    
 }
 
+
   onActiveIDChange = (id) => {
-    console.log("activeID", this.state.activeID);
-   console.log("just id=", id);
-    this.setState((state)=>{ return {activeID: id}});
-    console.log("activeID", this.state.activeID);
+     this.setState((state)=>{ return {activeID: id}});
+    
   }
 
   render() {

@@ -1,10 +1,7 @@
-
 import './contacts.css'
 
 const Contacts = ({data, onActiveIDChange}) => {
      
-
-
 return(
      <div className="contacts_wrapper">
      <h2>Chats</h2>
