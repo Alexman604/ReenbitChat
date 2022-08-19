@@ -7,36 +7,49 @@ class MessageInput extends Component {
         super(props);
         this.state = {
             message:"",
-            date:"55-55-55"
-            
-        }
-       
+            date:"",
+            isActive: false
+            }  
     }
    
     
     onInputChange =(e) => {
-        this.setState({
-            [e.target.name] : e.target.value
-        })
-        
+        this.setState({[e.target.name] : e.target.value})    
     }
-
     sendNewMessage = (e) => {
         e.preventDefault();
         const currentDate = new Date().toLocaleString();
-       
         this.props.addMessage(this.state.message, currentDate);
-        console.log(this.state.message)
         this.setState({message: " ", date: " "})
         
+        
+        this.setState({isActive : true});
+        setTimeout(() => {this.answerFromChuck();}, 5000) 
     }
+     async answerFromChuck() {
+        //GET request using fetch with async/await
+        const response = await fetch('https://api.chucknorris.io/jokes/random');
+        const answer = await response.json();
+        
+      
+        const currentDate = new Date().toLocaleString();
+        
+        this.props.addMessage(answer.value , currentDate);
+        
+        
+        this.setState({message: " ", date: " "})
+        this.setState({isActive : false});
 
-  /*   getJoke = () => {
-        fetch('https://reqbin.com/echo/get/json')
+    } 
+ 
+/*     answerFromChuck() {
+        fetch('https://api.chucknorris.io/jokes/random')
         .then(response => response.json())
-        .then(json => console.log(json))
-    } */
-    
+        .then(answer => this.setState({ answerFromChuck: answer.value }))
+        .then(console.log(this.state.answerFromChuck))
+        
+    }
+     */
     render () {
        
         return (
@@ -47,12 +60,12 @@ class MessageInput extends Component {
                 type="text" 
                 
                 name = "message"
-                value={this.state.name}
+                value={this.state.message}
                 className="message-input"
                 placeholder="Type your message"
                 onChange={this.onInputChange}
                 />
-                <button onClick = {this.sendNewMessage} type="submit">GO</button>
+                <button disabled={this.state.isActive} onClick = {this.sendNewMessage} type="submit">GO</button>
             </form>
             </div>    
         )

@@ -1,5 +1,6 @@
+import React from "react";
 import ChatHeader from "../chat-header/chat-header";
-import MessageInput from "../message-input/message-input";
+
 import "./chatbox.css";
 import Messages from "./messages";
 
@@ -9,10 +10,10 @@ const ChatBox = ({ data, activeID }) => {
       {data.map((item, index) => {
         if (activeID === index + 1)
           return (
-            <>
+            <React.Fragment key={index}>
             <ChatHeader img = {item.img} name = {item.name}/>
             <Messages messages={item.chatHistory} img={item.img}/>
-            </>
+            </React.Fragment>
           );
       })}
     </div>
@@ -59,9 +60,3 @@ const ChatBox = ({ data, activeID }) => {
 
 export default ChatBox;
 
-/* <div className="card text-center m-3">
-                <h5 className="card-header">GET Request with Async/Await</h5>
-                <div className="card-body">
-                    Total react packages: {totalReactPackages}
-                </div>
-            </div> */

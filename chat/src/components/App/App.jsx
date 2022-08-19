@@ -3,7 +3,6 @@ import { Component } from "react";
 import SearchPanel from "../search/search-panel";
 import MessageInput from "../message-input/message-input";
 import ChatBox from "../chatbox/chatbox";
-import ChatHeader from "../chat-header/chat-header";
 import Contacts from "../contacts/contacts";
 
 class App extends Component {
@@ -42,18 +41,15 @@ class App extends Component {
   }
 
   addMessage = (msg, date) => {
-    console.log(this.state.data);
     const newMessage = {
       msg,
       date,
     };
-    this.setState(({ data }) => {
-      this.state.data[this.state.activeID-1].chatHistory.push(newMessage);
-      return {
-        data
-      };
-    });
-  };
+    this.state.data[this.state.activeID-1].chatHistory.push(newMessage);
+    
+    this.setState(({ data }) => ({ data }));
+    };
+  
 
   onActiveIDChange = (id) => {
     this.setState(() => {

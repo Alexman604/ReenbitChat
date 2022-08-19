@@ -6,8 +6,7 @@ return(
      <div className="contacts_wrapper">
      <h2>Chats</h2>
      <ul>
-         {
-          data.map((item, index)=>(
+         {data.map((item, index)=>(
           <li key = {index} onClick = {() => {onActiveIDChange(index+1)}}> 
                 <img src={item.img} alt="" />
                 <div className='text-container'>
@@ -16,12 +15,8 @@ return(
                 <span className='msg'> {item.lastMsg}</span>
                 </div>
           </li>
-
           ))
-
-
          }
-
     </ul>
     </div>
 )
