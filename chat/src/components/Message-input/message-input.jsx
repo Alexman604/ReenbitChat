@@ -11,8 +11,7 @@ class MessageInput extends Component {
             isActive: false
             }  
     }
-   
-    
+
     onInputChange =(e) => {
         this.setState({[e.target.name] : e.target.value})    
     }
@@ -20,8 +19,7 @@ class MessageInput extends Component {
         e.preventDefault();
         const currentDate = new Date().toLocaleString();
         this.props.addMessage(this.state.message, currentDate);
-        this.setState({message: " ", date: " "})
-        
+        this.setState({message: "", date: " "})
         
         this.setState({isActive : true});
         setTimeout(() => {this.answerFromChuck();}, 5000) 
@@ -31,25 +29,12 @@ class MessageInput extends Component {
         const response = await fetch('https://api.chucknorris.io/jokes/random');
         const answer = await response.json();
         
-      
-        const currentDate = new Date().toLocaleString();
-        
+        const currentDate = new Date().toLocaleString();       
         this.props.addMessage(answer.value , currentDate);
-        
-        
-        this.setState({message: " ", date: " "})
+      //  this.setState({message: " ", date: " "})
         this.setState({isActive : false});
-
     } 
- 
-/*     answerFromChuck() {
-        fetch('https://api.chucknorris.io/jokes/random')
-        .then(response => response.json())
-        .then(answer => this.setState({ answerFromChuck: answer.value }))
-        .then(console.log(this.state.answerFromChuck))
-        
-    }
-     */
+
     render () {
        
         return (
@@ -57,8 +42,7 @@ class MessageInput extends Component {
             
             <form className="">
                 <input 
-                type="text" 
-                
+                type="text"                
                 name = "message"
                 value={this.state.message}
                 className="message-input"

@@ -47,6 +47,7 @@ class App extends Component {
     };
     this.state.data[this.state.activeID-1].chatHistory.push(newMessage);
     
+    this.setState({message: "", date: " "})
     this.setState(({ data }) => ({ data }));
     };
   
