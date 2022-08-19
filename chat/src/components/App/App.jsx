@@ -14,8 +14,6 @@ class App extends Component {
           name: "Alex Marin",
           id: 1,
           img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10122-baby-icon.png",
-          lastMsg: "hello World hello",
-          lastMsgDate: "11 march 1011",
           chatHistory: [
             { msg: "foo", date: "11-11-11" },
             { msg: "bar", date: "11-11-11" },
@@ -27,8 +25,6 @@ class App extends Component {
           name: "Fred Box",
           id: 2,
           img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10128-child-icon.png",
-          lastMsg: "Hi from Fred",
-          lastMsgDate: "22 march 2022",
           chatHistory: [
             { msg: "bazzz", date: "22-22-22" },
             { msg: "free", date: "22-22-22" },
