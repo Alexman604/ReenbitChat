@@ -4,6 +4,7 @@ import SearchPanel from "../search/search-panel";
 import MessageInput from "../message-input/message-input";
 import ChatBox from "../chatbox/chatbox";
 import Contacts from "../contacts/contacts";
+import { Data } from "./data";
 
 
 
@@ -11,122 +12,55 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        {
-          name: "Alex Marin",
-          id: 1,
-          img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10122-baby-icon.png",
-          chatHistory: [
-            { msg: " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque repellendus eius ut possimus fugiat totam voluptatum. Repellendus magni quae quisquam quas cupiditate, possimus, ipsum velit consequatur, laudantium iusto ex vero voluptatem molestias. Veniam ut ipsum nemo veritatis nihil unde, molestiae voluptatum. Error reiciendis explicabo quo obcaecati adipisci maiores perferendis aliquam! ", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, libero eligendi culpa cupiditate dignissimos delectus, recusandae distinctio in autem corporis saepe, tempore eveniet. Esse tempora et voluptatum quis deleniti ut.", date: "11-11-11" },
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque repellendus eius ut possimus fugiat totam voluptatum. Repellendus magni quae quisquam quas cupiditate, possimus, ipsum velit consequatur, laudantium iusto ex vero voluptatem molestias. Veniam ut ipsum nemo veritatis nihil unde, molestiae voluptatum. Error reiciendis explicabo quo obcaecati adipisci maiores perferendis aliquam!", date: "11-11-11" },
-          ],
-        },
-
-        {
-          name: "Fred Box",
-          id: 2,
-          img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10128-child-icon.png",
-          chatHistory: [
-            { msg: "bazzz", date: "22-22-22" },
-            { msg: "free", date: "22-22-22" },
-            { msg: "baz", date: "22-22-22" },
-          ],
-        },
-        {
-          name: "Alex Marin",
-          id: 1,
-          img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10122-baby-icon.png",
-          chatHistory: [
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-          ],
-        },
-        {
-          name: "Alex Marin",
-          id: 1,
-          img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10122-baby-icon.png",
-          chatHistory: [
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-          ],
-        },
-        {
-          name: "Alex Marin",
-          id: 1,
-          img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10122-baby-icon.png",
-          chatHistory: [
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-          ],
-        },
-        {
-          name: "Alex Marin",
-          id: 1,
-          img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10122-baby-icon.png",
-          chatHistory: [
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-          ],
-        },
-        {
-          name: "Alex Marin",
-          id: 1,
-          img: "https://icons.iconarchive.com/icons/google/noto-emoji-people-face/32/10122-baby-icon.png",
-          chatHistory: [
-            { msg: "foo", date: "11-11-11" },
-            { msg: "bar", date: "11-11-11" },
-            { msg: "baz", date: "11-11-11" },
-          ],
-        },
-
-      ],
+      data: Data,  
       activeID: 1,
+      
     };
-  }
+    }
 
-  addMessage = (msg, date) => {
+
+    componentDidMount() {
+    //  localStorage.clear();
+      const dataFromLS = JSON.parse(localStorage.getItem('data'));
+      console.log(dataFromLS);
+      if (dataFromLS === null) {localStorage.setItem('data', JSON.stringify(this.state.data))}
+      else 
+      {this.setState((state) => ({data: dataFromLS}));}
+
+    };
+
+
+
+  addMessage = (msg, date, contactIdAddMessage) => {
+  const {data} = this.state;
     const newMessage = {
       msg,
       date,
     };
-    this.state.data[this.state.activeID-1].chatHistory.push(newMessage);
-    
+    this.state.data[contactIdAddMessage-1].chatHistory.push(newMessage);
     this.setState({message: "", date: " "})
     this.setState(({ data }) => ({ data }));
+    this.pushUpInLis(data, contactIdAddMessage);
     };
   
+    pushUpInLis = (data, contactIdAddMessage) => {
+      data.push(...data.splice(0,(contactIdAddMessage-1)))
+      this.onActiveIDChange((contactIdAddMessage))
+      localStorage.setItem('data', JSON.stringify(this.state.data))
 
-  onActiveIDChange = (id) => {
+    }
+
+  onActiveIDChange = (contactId) => {
     this.setState(() => {
-      return { activeID: id };
-    });
+      
+      return {activeID: contactId };
+      
+    }
+    
+    );
+    
   };
+ 
 
   render() {
     return (
@@ -145,7 +79,7 @@ class App extends Component {
             activeID={this.state.activeID}
             
           />
-          <MessageInput addMessage={this.addMessage} />
+          <MessageInput addMessage={this.addMessage} activeID={this.state.activeID}/>
         </section>
       </div>
     );
