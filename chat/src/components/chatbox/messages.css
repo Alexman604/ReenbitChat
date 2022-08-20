@@ -1,24 +1,23 @@
 .message {
     display: flex;
-    padding: ;
-    margin: 5px;
-    flex-direction: ;
-    
-    
-    
+    flex-direction: column;
 }
- .textContainer {
-    
+.textContainer{
+    display:flex;
+    align-items: center;
+}
+
+ .messageText {
     display: flex;
     border-radius: 50rem;
     overflow: hidden;
-    padding: 0.5rem 1.3rem;
+    padding: 10px 1.5rem;
+    height: 80%;
+    line-height: 1.3rem;
+    
 
  }
 .message:nth-child(odd) {
-   
-    flex-direction: column;
-    
     padding-left: 20%;
     align-self: end;
     
@@ -30,25 +29,26 @@
 .message:nth-child(even) {
     display: flex;
     align-self:baseline;
-    /* background-color: lightcoral; */
     flex-wrap: wrap;
-    
-
 }
 
 .MessageDate {
-    text-align: right;
+   padding: 2px;
 }
-
-
-.message:nth-child(odd) .textContainer{
-    background-color: rgb(198, 196, 196);
+.message:nth-child(odd) .MessageDate{
+    text-align: right;
+    padding-right: 5px;
+    
+}
+.message:nth-child(odd) .messageText{
+    background-color: rgb(224, 224, 224);
     
 }
 
-.message:nth-child(even) .textContainer{
-    background-color:black;
+.message:nth-child(even) .messageText{
+    background-color:rgb(60, 65, 84);
     color: aliceblue;
     align-items: center;
+    max-width: 80%;
     
 }

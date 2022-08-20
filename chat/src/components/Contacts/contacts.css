@@ -2,7 +2,7 @@
     
     height: 100%;
     background-color: white;
-    border-bottom: grey solid 1px;
+    border-bottom: rgb(215, 215, 215) solid 1px;
     overflow-y: auto;
    
 }
@@ -19,7 +19,7 @@ h2 {
     width: 100%;
     display: flex;
     margin-bottom: 10px;
-    border-bottom: grey solid 2px;   
+    border-bottom: rgb(215, 215, 215) solid 2px;   
     overflow: hidden;
 }
 

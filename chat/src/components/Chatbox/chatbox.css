@@ -2,7 +2,7 @@
     height: 100%;
     overflow-y: scroll;
     background-color: white;
-    border-bottom: grey solid 1px;
+    border-bottom: rgb(215, 215, 215) solid 1px;
 }
 .messageContainer {
    

@@ -5,8 +5,8 @@
     padding: 10px;
     flex-direction: row;
     align-items: center;
-    background-color: rgb(215, 215, 215);
-    border-bottom: grey solid 1px;
+    background-color: rgb(245, 245, 245);
+    border-bottom: rgb(215, 215, 215) solid 1px;
 }
 
 .name {

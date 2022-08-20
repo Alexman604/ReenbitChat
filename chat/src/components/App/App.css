@@ -2,7 +2,7 @@
   margin: 0 auto;
   max-width: 1600px;
   height: 800px;
-  border: solid grey 1px;
+  border: solid rgb(215, 215, 215) 1px;
   display: flex;
   flex-direction: row;
 }
@@ -14,7 +14,7 @@ flex-direction: column;
 width: 30%;
 height: 100%;
 align-content: flex-start;
-border-right: solid grey 1px;
+border-right: solid rgb(215, 215, 215) 1px;
 min-width: 350px;
 }
 

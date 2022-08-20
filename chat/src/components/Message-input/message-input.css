@@ -1,15 +1,15 @@
 .input-wrapper {
     height: 100px;
     padding: 20px;
-    background-color: rgb(215, 215, 215);
-    border-bottom: grey solid 1px;
+    background-color: rgb(245, 245, 245);
+    border-bottom: rgb(215, 215, 215) solid 1px;
     
 }
 
 form {
     display:flex;
     flex-direction:row;
-    border:1px solid grey;
+    border:1px solid 215, 215, 215;
     border-radius: 40px;
     width: 100%;
     padding-right: 15px;

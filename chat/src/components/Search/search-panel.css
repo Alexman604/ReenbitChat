@@ -2,8 +2,8 @@
 
 .search-panel {
     padding: 15px;
-    background-color: rgb(215, 215, 215);
-    border-bottom: grey solid 1px;
+    background-color: rgb(245, 245, 245);
+    border-bottom: rgb(215, 215, 215) solid 1px;
     
 }
 
@@ -16,5 +16,5 @@
     padding: 10px 10px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: grey solid 1px;
+    border: rgb(215, 215, 215) solid 1px;
 }
