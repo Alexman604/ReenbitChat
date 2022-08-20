@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       data: Data,  
       activeID: 1,
+      searchInput: ''
       
     };
     }
@@ -60,26 +61,40 @@ class App extends Component {
     );
     
   };
- 
+  
+  searchContact = (contacts, searchInput) => {
+    if (searchInput === 0) {return contacts;}
+
+      return contacts.filter (contact => {
+        return contact.name.indexOf(searchInput) > -1
+      })
+  }
+
+  onUpdateSearch = (searchInput) =>{
+    this.setState({searchInput})
+  }
 
   render() {
+    const{data, activeID, searchInput} = this.state;
+    const filteredData = this.searchContact(data, searchInput);
+
     return (
       <div className="app">
         <section className="left-side">
-          <SearchPanel />
+          <SearchPanel onUpdateSearch = {this.onUpdateSearch}/>
           <Contacts
-            data={this.state.data}
+            data={filteredData}
             onActiveIDChange={this.onActiveIDChange}
           />
         </section>
 
         <section className="right-side">
           <ChatBox
-            data={this.state.data}
-            activeID={this.state.activeID}
+            data={data}
+            activeID={activeID}
             
           />
-          <MessageInput addMessage={this.addMessage} activeID={this.state.activeID}/>
+          <MessageInput addMessage={this.addMessage} activeID={activeID}/>
         </section>
       </div>
     );
