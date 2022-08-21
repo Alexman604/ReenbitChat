@@ -27,3 +27,19 @@ min-width: 350px;
 
 }
 
+.chat-header {
+  position: sticky;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  border-bottom: rgb(215, 215, 215) solid 1px;
+}
+
+.name {
+  color: black;
+  
+}
