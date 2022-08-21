@@ -35,7 +35,8 @@ form {
     
   }
   
-  button {
+  .button {
+    cursor: pointer;
     height: 50px;
     width: 55px;
     align-self: center;

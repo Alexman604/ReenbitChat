@@ -14,7 +14,23 @@
     border-radius: 40px;
     width: 100%;
     padding: 10px 10px;
-    margin: 8px 0;
+    margin: 5px 4px;
     box-sizing: border-box;
     border: rgb(215, 215, 215) solid 1px;
 }
+
+.clearLS{
+    background-color: white;
+    color: darkgray;
+    border: rgb(215, 215, 215) solid 1px;
+    padding: 10px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 5px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.clearLS:hover {
+    background-color: #e7e7e7;}

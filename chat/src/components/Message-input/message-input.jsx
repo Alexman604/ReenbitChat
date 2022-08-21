@@ -31,7 +31,7 @@ class MessageInput extends Component {
     const answer = await response.json();
     const currentDate = new Date().toLocaleString("en-US");
     setTimeout(() => {
-    this.props.addMessage(answer.value, currentDate, contactIdAddMessage, "leftPosition");}, 3000);
+    this.props.addMessage(answer.value, currentDate, contactIdAddMessage, "leftPosition", "notification");}, 10000);
     this.setState({message: "", date: " "})
   
   }
@@ -50,7 +50,7 @@ class MessageInput extends Component {
             required
           />
           <button
-           type="submit"> </button>
+           className="button" type="submit"> </button>
         </form>
       </div>
     );

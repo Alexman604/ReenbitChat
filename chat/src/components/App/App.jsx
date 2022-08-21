@@ -14,62 +14,55 @@ class App extends Component {
     this.state = {
       data: Data,  
       activeID: 1,
-      searchInput: ''
-      
-    };
+      searchInput: '',
+      };
     }
 
-
     componentDidMount() {
-      localStorage.clear();
+      
       const dataFromLS = JSON.parse(localStorage.getItem('data'));
-      console.log(dataFromLS);
       if (dataFromLS === null) {localStorage.setItem('data', JSON.stringify(this.state.data))}
-      else 
-     {this.setState((state) => ({data: dataFromLS}));}
-
+      else   {this.setState(() => ({data: dataFromLS}));}
     };
 
-
-
-  addMessage = (msg, date, contactIdAddMessage, whichPosition) => {
+  addMessage = (msg, date, contactIdAddMessage, whichPosition, notification) => {
   const {data} = this.state;
     const newMessage = {
       msg,
       date,
       whichPosition,
+      notification
     };
     
+
     data.map((item, index) =>{
       if (item.contactId===contactIdAddMessage) 
       {item.chatHistory.push(newMessage);
       data.push(...data.splice(0,index))
-      //this.onActiveIDChange((contactIdAddMessage))
-      }    })
+      }});
    
-    this.setState(({ data }) => ({ data }));
-    console.log(data);
-   // this.pushUpInList (data, contactIdAddMessage);
+    this.setState(({ data }));
+    //console.log(data);
+    localStorage.setItem('data', JSON.stringify(this.state.data))
+  
     };
   
-    pushUpInList = (data, contactIdAddMessage) => {
-      
-      //data.push(...data.splice(0,(contactIdAddMessage-1)))
-     // this.onActiveIDChange((contactIdAddMessage))
-    
-      localStorage.setItem('data', JSON.stringify(this.state.data))
-
-    }
 
   onActiveIDChange = (contactId) => {
     this.setState(() => {
       return {activeID: contactId };
     });
+ 
+  
+    this.state.data.map((item) => {
+      if (item.contactId === contactId) {console.log(item.chatHistory[item.chatHistory.length-1].notification = "")}
+    })
+   
   };
   
   searchContact = (contacts, searchInput) => {
     if (searchInput === 0) {return contacts}
-      return contacts.filter (contact => {
+      return contacts.filter(contact => {
         return contact.name.toLowerCase().indexOf(searchInput.toLowerCase()) > -1
       })
   }
@@ -77,6 +70,11 @@ class App extends Component {
   onUpdateSearch = (searchInput) =>{
     this.setState({searchInput})
   }
+
+ /*  makeNotification = (id, off) =>{
+    this.setState (() => ({notificationId: id}))
+    this.setState (() =>({notification: true}))
+  } */
 
   render() {
     const{data, activeID, searchInput} = this.state;

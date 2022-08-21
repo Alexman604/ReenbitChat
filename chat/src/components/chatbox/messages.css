@@ -3,6 +3,7 @@
     flex-direction: column;
     padding-left: 20%;
     align-self: end;
+
 }
 .leftPosition {
     display: flex;
@@ -14,6 +15,7 @@
 .textContainer{
     display:flex;
     align-items: center;
+    margin: 10px;
 }
 
  .messageText {

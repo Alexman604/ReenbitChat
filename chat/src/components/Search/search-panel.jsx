@@ -16,12 +16,14 @@ class SearchPanel extends Component {
         this.props.onUpdateSearch(term);
 
     } 
-    
+        clearLS = () =>{
+            localStorage.clear()
+        }
     render () {
         return (
           <div  className="search-panel">
             <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/32/Apps-preferences-desktop-user-icon.png" alt="USerPicture" />
-           
+                
             <input 
             type="text" 
             className="search-form"
@@ -30,7 +32,7 @@ class SearchPanel extends Component {
             onChange = {this.onUpdateSearch}
             
             />
-            
+            <button className="clearLS" onClick={this.clearLS}>clear localStorage</button>
             </div>    
         )
 
@@ -40,3 +42,5 @@ class SearchPanel extends Component {
 
 
 export default SearchPanel;
+
+

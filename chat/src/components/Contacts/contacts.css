@@ -43,7 +43,7 @@ img {
     padding: 5px;
 }
 
-.name::after{
+.notification::after{
     margin-left: 10px;
     content: "new";
     background-color:mediumslateblue;
