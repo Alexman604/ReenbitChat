@@ -7,49 +7,39 @@ class MessageInput extends Component {
     this.state = {
       message: "",
       date: "",
-      isActiveButton: false,
       contactIdAddMessage: 1,
     };
   }
 
   onInputChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    if (this.state.contactIdAddMessage !== this.props.activeID) {
+    this.setState(() => ({contactIdAddMessage: this.props.activeID}))}
   };
 
   sendNewMessage = (e) => {
     e.preventDefault();
-    const { activeID, addMessage } = this.props;
     const { contactIdAddMessage } = this.state;
-    this.setState(({ state }) => ({ contactIdAddMessage: activeID }));
-    this.setState(() => ({ contactIdAddMessage: activeID }));
     const currentDate = new Date().toLocaleString("en-US");
-    addMessage(this.state.message, currentDate, contactIdAddMessage);
-    this.setState({message: "", date: " ", contactIdAddMessage: activeID});
-    this.setState({ isActiveButton: true });
-    setTimeout(() => {
-    this.answerFromChuck();
-    }, 5000);
+    this.props.addMessage(this.state.message, currentDate, contactIdAddMessage, "rightPosition");
+    this.setState({message: ""}); 
+    this.answerFromChuck(contactIdAddMessage);
   };
  
-  async answerFromChuck() {
+  async answerFromChuck(contactIdAddMessage) {
     const response = await fetch("https://api.chucknorris.io/jokes/random");
     const answer = await response.json();
-
     const currentDate = new Date().toLocaleString("en-US");
-   
-    this.props.addMessage(
-      answer.value,
-      currentDate,
-      this.state.contactIdAddMessage
-    );
-    this.setState({message: " ", date: " "})
-    this.setState({ isActiveButton: false });
+    setTimeout(() => {
+    this.props.addMessage(answer.value, currentDate, contactIdAddMessage, "leftPosition");}, 3000);
+    this.setState({message: "", date: " "})
+  
   }
 
   render() {
     return (
       <div className="input-wrapper">
-        <form className="">
+        <form className="" onSubmit={this.sendNewMessage}>
           <input
             type="text"
             name="message"
@@ -57,14 +47,10 @@ class MessageInput extends Component {
             className="message-input"
             placeholder="Type your message"
             onChange={this.onInputChange}
+            required
           />
           <button
-            disabled={this.state.isActiveButton}
-            onClick={this.sendNewMessage}
-            type="submit"
-          >
-            GO
-          </button>
+           type="submit"> </button>
         </form>
       </div>
     );

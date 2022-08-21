@@ -1,6 +1,15 @@
-.message {
+.rightPosition {
     display: flex;
     flex-direction: column;
+    padding-left: 20%;
+    align-self: end;
+}
+.leftPosition {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-self:baseline;
+    flex-wrap: wrap;
 }
 .textContainer{
     display:flex;
@@ -14,38 +23,28 @@
     padding: 10px 1.5rem;
     height: 80%;
     line-height: 1.3rem;
-    
-
  }
-.message:nth-child(odd) {
-    padding-left: 20%;
-    align-self: end;
-    
-}
 
-.message:nth-child(odd) img{
+.rightPosition img{
     display: none;
 }
-.message:nth-child(even) {
-    display: flex;
-    align-self:baseline;
-    flex-wrap: wrap;
-}
+
+
 
 .MessageDate {
    padding: 2px;
 }
-.message:nth-child(odd) .MessageDate{
+.rightPosition .MessageDate{
     text-align: right;
     padding-right: 5px;
     
 }
-.message:nth-child(odd) .messageText{
+.rightPosition .messageText{
     background-color: rgb(224, 224, 224);
     
 }
 
-.message:nth-child(even) .messageText{
+.leftPosition .messageText{
     background-color:rgb(60, 65, 84);
     color: aliceblue;
     align-items: center;

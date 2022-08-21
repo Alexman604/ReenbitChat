@@ -21,7 +21,7 @@ class SearchPanel extends Component {
         return (
           <div  className="search-panel">
             <img src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/32/Apps-preferences-desktop-user-icon.png" alt="USerPicture" />
-            
+           
             <input 
             type="text" 
             className="search-form"

@@ -1,4 +1,5 @@
 .input-wrapper {
+    position:static;
     height: 100px;
     padding: 20px;
     background-color: rgb(245, 245, 245);
@@ -35,13 +36,15 @@ form {
   }
   
   button {
-    height: 40px;
-    width: 40px;
-   align-self: center;
-   
+    height: 50px;
+    width: 55px;
+    align-self: center;
+    background-image:  url(https://icons.iconarchive.com/icons/custom-icon-design/pretty-office-11/48/paper-plane-icon.png);
+    background-position: center;
+    background-origin: content-box;
     border-radius: 50%;
-    border:1px solid darkgrey;
-    background:grey;
+    border:1px solid rgb(215, 215, 215);
+   
     color:white;
   };
 

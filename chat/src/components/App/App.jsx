@@ -21,55 +21,59 @@ class App extends Component {
 
 
     componentDidMount() {
-    //  localStorage.clear();
+      localStorage.clear();
       const dataFromLS = JSON.parse(localStorage.getItem('data'));
       console.log(dataFromLS);
       if (dataFromLS === null) {localStorage.setItem('data', JSON.stringify(this.state.data))}
       else 
-      {this.setState((state) => ({data: dataFromLS}));}
+     {this.setState((state) => ({data: dataFromLS}));}
 
     };
 
 
 
-  addMessage = (msg, date, contactIdAddMessage) => {
+  addMessage = (msg, date, contactIdAddMessage, whichPosition) => {
   const {data} = this.state;
     const newMessage = {
       msg,
       date,
+      whichPosition,
     };
-    this.state.data[contactIdAddMessage-1].chatHistory.push(newMessage);
-    this.setState({message: "", date: " "})
+    
+    data.map((item, index) =>{
+      if (item.contactId===contactIdAddMessage) 
+      {item.chatHistory.push(newMessage);
+      data.push(...data.splice(0,index))
+      //this.onActiveIDChange((contactIdAddMessage))
+      }    })
+   
     this.setState(({ data }) => ({ data }));
-    this.pushUpInLis(data, contactIdAddMessage);
+    console.log(data);
+   // this.pushUpInList (data, contactIdAddMessage);
     };
   
-    pushUpInLis = (data, contactIdAddMessage) => {
-      data.push(...data.splice(0,(contactIdAddMessage-1)))
-      this.onActiveIDChange((contactIdAddMessage))
+    pushUpInList = (data, contactIdAddMessage) => {
+      
+      //data.push(...data.splice(0,(contactIdAddMessage-1)))
+     // this.onActiveIDChange((contactIdAddMessage))
+    
       localStorage.setItem('data', JSON.stringify(this.state.data))
 
     }
 
   onActiveIDChange = (contactId) => {
     this.setState(() => {
-      
       return {activeID: contactId };
-      
-    }
-    
-    );
-    
+    });
   };
   
   searchContact = (contacts, searchInput) => {
-    if (searchInput === 0) {return contacts;}
-
+    if (searchInput === 0) {return contacts}
       return contacts.filter (contact => {
-        return contact.name.indexOf(searchInput) > -1
+        return contact.name.toLowerCase().indexOf(searchInput.toLowerCase()) > -1
       })
   }
-
+  
   onUpdateSearch = (searchInput) =>{
     this.setState({searchInput})
   }
