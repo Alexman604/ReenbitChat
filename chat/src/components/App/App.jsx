@@ -5,7 +5,7 @@ import MessageInput from "../message-input/message-input";
 import ChatBox from "../chatbox/chatbox";
 import Contacts from "../contacts/contacts";
 import { Data } from "./data";
-import "./chat-header/chat-header.css"
+import "../chat-header/chat-header.css"
 
 
 
