@@ -1,7 +1,7 @@
 .app {
   margin: 0 auto;
-  max-width: 1600px;
-  height: 800px;
+  max-width: 1200px;
+  height: 700px;
   border: solid rgb(215, 215, 215) 1px;
   display: flex;
   flex-direction: row;
@@ -11,7 +11,7 @@
 .left-side {
 display: flex;
 flex-direction: column;
-width: 30%;
+width: 40%;
 height: 100%;
 align-content: flex-start;
 border-right: solid rgb(215, 215, 215) 1px;
